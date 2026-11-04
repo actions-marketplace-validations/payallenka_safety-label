@@ -105,6 +105,8 @@ Vendor disclosures on file (12): Firebase Analytics, Firebase Crashlytics, Fireb
 
 No usable official disclosure found yet: Meta (Facebook) SDK, Meta Audience Network, AppsFlyer, Sentry, Mixpanel, Amplitude, AppLovin MAX, Segment, Google Sign-In, Google Play Billing. These are still detected and listed under "Check these yourself". If you know an official vendor page for one of them, please [open an issue](https://github.com/payallenka/safety-label/issues).
 
+On 5 November 2026 every phrase quoted in the data was checked word for word against the vendor's live page, except Branch, whose page blocks automated downloads. The sharing answers for AdMob and Firebase were also checked by hand.
+
 Many vendors don't use Play's exact type names. Where an answer maps a vendor's wording onto a Play type, its note says "Mapping derived" and quotes the vendor.
 
 ## What it can't see
