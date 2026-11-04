@@ -1,0 +1,28 @@
+name: Safety Label
+description: Find the tracker SDKs in your Android build, draft Play Data safety answers, and fail when an update adds a tracker.
+author: Payal Lenka
+branding:
+  icon: shield
+  color: green
+inputs:
+  path:
+    description: The APK, AAB, APKS or XAPK to scan.
+    required: true
+  baseline:
+    description: A JSON report from an earlier run (for example your last release) to compare against. When given, the step fails if this build adds a tracker, data type or permission.
+    required: false
+    default: ""
+  report:
+    description: Where to write this run's JSON report, for use as a later baseline.
+    required: false
+    default: safety-label-report.json
+outputs:
+  report:
+    description: Path of the JSON report.
+  trackers:
+    description: Number of trackers found.
+  new-findings:
+    description: "'true' when the build adds something compared with the baseline, 'false' when it doesn't, empty without a baseline."
+runs:
+  using: node24
+  main: action/index.js

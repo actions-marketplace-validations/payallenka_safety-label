@@ -1,0 +1,747 @@
+{
+  "verified": "2026-11-05",
+  "sdks": [
+    {
+      "key": "firebase-analytics",
+      "name": "Firebase Analytics",
+      "trackerIds": [
+        "exodus:49"
+      ],
+      "source": "https://support.google.com/analytics/answer/11582702",
+      "collected": [
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Vendor lists 'App-instance ID' (automatic) and 'Android Advertising ID' (can be disabled via Analytics data collection configuration). Vendor does not use Play type names or Play purposes; mapping derived from vendor description."
+        },
+        {
+          "category": "Location",
+          "type": "Approximate location",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Vendor: 'Derives coarse location data from the masked IP addresses of the device.' Mapping derived."
+        },
+        {
+          "category": "Financial info",
+          "type": "Purchase history",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Vendor: collects in-app purchase and subscription events with product ID, product name, and price. Mapping derived."
+        },
+        {
+          "category": "App activity",
+          "type": "App interactions",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Vendor: 'Collects screen views and sessions for use in Reporting and Analysis.' Mapping derived."
+        },
+        {
+          "category": "Personal info",
+          "type": "User IDs",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if the developer sets a User-ID."
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Vendor page does not assign Play categories or purposes; Advertising ID and app-instance ID collection are configurable; signed-in account info is collected only if Google Signals is enabled; sharing depends on Google Signals, Google Ads linking and Data Sharing Settings."
+    },
+    {
+      "key": "firebase-crashlytics",
+      "name": "Firebase Crashlytics",
+      "trackerIds": [
+        "exodus:27"
+      ],
+      "source": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "collected": [
+        {
+          "category": "App info and performance",
+          "type": "Crash logs",
+          "purposes": [],
+          "shared": false,
+          "optional": null,
+          "note": "Vendor: collects stack traces, relevant application state and point-in-time device metadata when an application crashes. Mapping to Play type derived; vendor states use is 'to enable crash reporting and crash management services'."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [],
+          "shared": false,
+          "optional": null,
+          "note": "Vendor: Crashlytics installation UUID, used to measure the number of users impacted by a crash. Mapping derived."
+        },
+        {
+          "category": "Personal info",
+          "type": "User IDs",
+          "purposes": [],
+          "shared": false,
+          "optional": null,
+          "note": "Only if the developer attaches free-text user IDs to crash reports."
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Vendor page does not use Play type names or purposes; also collects developer-attached custom keys, logs and non-fatal events; uses Google Analytics breadcrumb logs if Analytics is included and Remote Config rollout metadata if Remote Config is included; depends on Firebase Installations and Sessions SDKs. 'shared: false' is based on Firebase's statement that it does not transfer this data to third parties except subprocessors or as directed by the developer."
+    },
+    {
+      "key": "firebase-cloud-messaging",
+      "name": "Firebase Cloud Messaging",
+      "trackerIds": [],
+      "codeSignatures": [
+        "com.google.firebase.messaging"
+      ],
+      "source": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "collected": [
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [],
+          "shared": false,
+          "optional": null,
+          "note": "Via the Firebase Installations SDK dependency: Firebase installation ID (FID), which the vendor says 'does not uniquely identify a user or physical device'. Mapping derived; vendor says Installations requires separate disclosure."
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Vendor page does not use Play type names or purposes; automatically collects the app version (for topic subscription) and the Firebase user agent; message delivery metrics are sent to BigQuery only if the BigQuery export is enabled; notification interaction events are logged via Google Analytics only if Analytics is included."
+    },
+    {
+      "key": "firebase-performance",
+      "name": "Firebase Performance Monitoring",
+      "trackerIds": [],
+      "codeSignatures": [
+        "com.google.firebase.perf"
+      ],
+      "source": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "collected": [
+        {
+          "category": "App info and performance",
+          "type": "Diagnostics",
+          "purposes": [],
+          "shared": false,
+          "optional": null,
+          "note": "Vendor: app performance metrics during the app lifecycle, CPU/memory usage, and device metadata. Mapping derived."
+        },
+        {
+          "category": "Location",
+          "type": "Approximate location",
+          "purposes": [],
+          "shared": false,
+          "optional": null,
+          "note": "Vendor: 'Collects the IP address to map performance events to the countries they originate from.' Mapping derived."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [],
+          "shared": false,
+          "optional": null,
+          "note": "Via the Firebase Installations SDK dependency (FID). Mapping derived."
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Vendor page does not use Play type names or purposes; also collects custom traces, metrics and attributes the developer instruments; depends on Installations, Remote Config and Sessions SDKs."
+    },
+    {
+      "key": "google-mobile-ads",
+      "name": "Google Mobile Ads (AdMob)",
+      "trackerIds": [
+        "exodus:312"
+      ],
+      "source": "https://developers.google.com/admob/android/privacy/play-data-disclosure",
+      "collected": [
+        {
+          "category": "Location",
+          "type": "Approximate location",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": null,
+          "note": "Vendor lists 'IP address', 'which may be used to estimate the general location of a device'."
+        },
+        {
+          "category": "App activity",
+          "type": "App interactions",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": null,
+          "note": "Vendor: 'User product interactions', including app launch, taps, and video views."
+        },
+        {
+          "category": "App info and performance",
+          "type": "Diagnostics",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": null,
+          "note": "Vendor: 'Diagnostic information' including app launch time, hang rate, and energy usage."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": true,
+          "note": "Android ad ID, app set ID and, if applicable, signed-in account identifiers. Vendor: 'Android ad ID collection is optional.'"
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Table applies to SDK 25.5.0; vendor states data is collected and shared 'for advertising, analytics, and fraud prevention purposes' without per-type purposes; ad ID collection can be prevented via the manifest; Limited Ads may disable ad ID and other data; optional features may add collection."
+    },
+    {
+      "key": "adjust",
+      "name": "Adjust",
+      "trackerIds": [
+        "exodus:52"
+      ],
+      "source": "https://help.adjust.com/en/article/google-play-data-safety",
+      "collected": [
+        {
+          "category": "App activity",
+          "type": null,
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Vendor names only the 'App activity' category: sessions/app launches (activity resume and pause) collected by default. No specific Play type given."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Google Advertising ID with Android ID fallback on Google Play devices; not read when the user opts out via COPPA or Google Kids settings."
+        },
+        {
+          "category": "Financial info",
+          "type": "Purchase history",
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": null,
+          "optional": true,
+          "note": "Only if the purchase verification SDK is integrated."
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Purposes are stated for Adjust's data use overall, not per type; Developer communications, Advertising or marketing and Personalization apply only if the developer configures integrations/exports; any personal info (including hashed emails) sent via custom parameters must be disclosed by the developer."
+    },
+    {
+      "key": "branch",
+      "name": "Branch",
+      "trackerIds": [
+        "exodus:167"
+      ],
+      "source": "https://help.branch.io/answering-the-google-play-store-privacy-questions",
+      "collected": [
+        {
+          "category": "App activity",
+          "type": "App interactions",
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Advertising or marketing",
+            "Personalization"
+          ],
+          "shared": true,
+          "optional": true,
+          "note": "Vendor label 'Page Views and Taps in App'; can be blocked until the user opts in via Branch privacy controls."
+        },
+        {
+          "category": "App activity",
+          "type": "Other user-generated content",
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Advertising or marketing",
+            "Personalization"
+          ],
+          "shared": true,
+          "optional": true,
+          "note": "Vendor marks OPTIONAL, e.g. if Branch measures in-app purchases."
+        },
+        {
+          "category": "App activity",
+          "type": "Other actions",
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Advertising or marketing",
+            "Personalization"
+          ],
+          "shared": true,
+          "optional": true,
+          "note": "Clicks, installs and purchases collected on the developer's behalf."
+        },
+        {
+          "category": "Web browsing",
+          "type": "Web browsing history",
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Advertising or marketing",
+            "Personalization"
+          ],
+          "shared": true,
+          "optional": true,
+          "note": null
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [
+            "App functionality",
+            "Analytics",
+            "Advertising or marketing",
+            "Personalization"
+          ],
+          "shared": true,
+          "optional": true,
+          "note": null
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Purposes and collected/shared answers are given once for all data, not per type; vendor also lists 'Other Data' (engagement data, device metadata such as screen size and OS version), which is not a Play data type; data is not processed ephemerally."
+    },
+    {
+      "key": "onesignal",
+      "name": "OneSignal",
+      "trackerIds": [
+        "exodus:193"
+      ],
+      "source": "https://documentation.onesignal.com/docs/en/google-play-data-safety-requirements.md",
+      "collected": [
+        {
+          "category": "Financial info",
+          "type": "Purchase history",
+          "purposes": [
+            "Analytics"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Collected by default if the app has in-app purchases; vendor gives 'Analytics' as the minimum purpose."
+        },
+        {
+          "category": "App activity",
+          "type": "App interactions",
+          "purposes": [
+            "Analytics",
+            "Developer communications"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Session counts, durations and notification clicks; vendor gives these as minimum purposes."
+        },
+        {
+          "category": "Location",
+          "type": "Precise location",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if the app collects it and sends it to OneSignal."
+        },
+        {
+          "category": "Personal info",
+          "type": "Email address",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if added to OneSignal."
+        },
+        {
+          "category": "Personal info",
+          "type": "Phone number",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if added to OneSignal."
+        },
+        {
+          "category": "Personal info",
+          "type": "Name",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if collected via Tags or Outcomes."
+        },
+        {
+          "category": "Personal info",
+          "type": "User IDs",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if collected via Tags or Outcomes."
+        },
+        {
+          "category": "Personal info",
+          "type": "Other info",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if collected via Tags or Outcomes."
+        },
+        {
+          "category": "App activity",
+          "type": "Other user-generated content",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if collected via Tags or Outcomes."
+        },
+        {
+          "category": "App activity",
+          "type": "Other actions",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Only if collected via Tags or Outcomes."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "GAID not collected by default; collected if Aliases are used to link identifiers."
+        }
+      ],
+      "encryptedInTransit": null,
+      "conditions": "Most collection depends on data the developer sends (Tags, Outcomes, email/SMS subscriptions, location, Aliases); sharing, optionality and encryption answers appear only in screenshots and could not be read."
+    },
+    {
+      "key": "unity-ads",
+      "name": "Unity Ads",
+      "trackerIds": [
+        "exodus:121"
+      ],
+      "source": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety",
+      "collected": [
+        {
+          "category": "Location",
+          "type": "Approximate location",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "App functionality",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": null
+        },
+        {
+          "category": "Personal info",
+          "type": "User IDs",
+          "purposes": [
+            "App functionality"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": "Vendor label 'Personal identifiers'."
+        },
+        {
+          "category": "Financial info",
+          "type": "Purchase history",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": null
+        },
+        {
+          "category": "App activity",
+          "type": "App interactions",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": "Vendor label 'Page views and taps in the app'; only during the ad experience, not during gameplay."
+        },
+        {
+          "category": "App activity",
+          "type": "Other actions",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": "Vendor label 'Other app activity' (app usage times); only when Acquire Optimization is enabled in the Monetization dashboard."
+        },
+        {
+          "category": "App info and performance",
+          "type": "Diagnostics",
+          "purposes": [
+            "App functionality",
+            "Analytics"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": "Vendor label 'App diagnostics'."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [
+            "Advertising or marketing",
+            "Analytics",
+            "App functionality",
+            "Fraud prevention, security, and compliance"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": null
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Disclosures cover the Unity Ads SDK only; no SDK version stated; data is not processed ephemerally."
+    },
+    {
+      "key": "ironsource-levelplay",
+      "name": "ironSource/LevelPlay",
+      "trackerIds": [
+        "exodus:146"
+      ],
+      "source": "https://docs.unity.com/en-us/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire",
+      "collected": [
+        {
+          "category": "Location",
+          "type": "Approximate location",
+          "purposes": [
+            "Analytics",
+            "Fraud prevention, security, and compliance",
+            "Advertising or marketing"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": null
+        },
+        {
+          "category": "App activity",
+          "type": "Other actions",
+          "purposes": [
+            "Analytics",
+            "Fraud prevention, security, and compliance",
+            "Advertising or marketing"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": "Interaction with ads."
+        },
+        {
+          "category": "App info and performance",
+          "type": "Diagnostics",
+          "purposes": [
+            "Analytics",
+            "Fraud prevention, security, and compliance",
+            "Advertising or marketing"
+          ],
+          "shared": false,
+          "optional": false,
+          "note": null
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [
+            "Analytics",
+            "Fraud prevention, security, and compliance",
+            "Advertising or marketing"
+          ],
+          "shared": true,
+          "optional": false,
+          "note": null
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "No SDK version stated; page does not say whether mediated ad network adapters are covered, so mediated networks need their own disclosures."
+    },
+    {
+      "key": "braze",
+      "name": "Braze",
+      "trackerIds": [
+        "exodus:17"
+      ],
+      "source": "https://braze.com/docs/developer_guide/analytics/managing_data_collection",
+      "collected": [
+        {
+          "category": "App activity",
+          "type": "App interactions",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Session activity collected by default; other activity depends on the app's custom integration."
+        },
+        {
+          "category": "Messages",
+          "type": "Other in-app messages",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Vendor: 'we collect information on when users have opened or read these messages'."
+        },
+        {
+          "category": "App info and performance",
+          "type": "Crash logs",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Crash logs for errors within the SDK."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [],
+          "shared": null,
+          "optional": null,
+          "note": "Braze-generated device ID."
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "Vendor: the SDK 'collects data as configured by the app developer'; approximate location, health info, emails and other user-generated content are 'Not collected by default'; no purposes or sharing answers given."
+    },
+    {
+      "key": "bugsnag",
+      "name": "Bugsnag",
+      "trackerIds": [
+        "exodus:207"
+      ],
+      "source": "https://docs.bugsnag.com/platforms/android/playstore-privacy/",
+      "collected": [
+        {
+          "category": "App activity",
+          "type": "Other actions",
+          "purposes": [
+            "Analytics"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Breadcrumbs; can be limited via enabledBreadcrumbTypes or onBreadcrumb."
+        },
+        {
+          "category": "App info and performance",
+          "type": "Crash logs",
+          "purposes": [
+            "Analytics"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Internal SDK crash reports can be disabled via the telemetry option."
+        },
+        {
+          "category": "App info and performance",
+          "type": "Diagnostics",
+          "purposes": [
+            "Analytics"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": null
+        },
+        {
+          "category": "App info and performance",
+          "type": "Other app performance data",
+          "purposes": [
+            "Analytics"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Application information captured by default."
+        },
+        {
+          "category": "Device or other IDs",
+          "type": "Device or other IDs",
+          "purposes": [
+            "Analytics"
+          ],
+          "shared": null,
+          "optional": null,
+          "note": "Generated device ID and a generated user ID when no user is set; both can be overridden."
+        }
+      ],
+      "encryptedInTransit": true,
+      "conditions": "User data set via setUser links reports to a user; session tracking on by default (autoTrackSessions); React Native/Expo/Unity/Unreal capture additional interaction and navigation breadcrumbs; custom metadata is out of scope of the vendor page."
+    }
+  ],
+  "unavailable": [
+    {
+      "name": "Meta/Facebook SDK (core/analytics/app events)",
+      "reason": "No Google Play Data safety disclosure found on developers.facebook.com (Android docs and docs index checked); search surfaced none."
+    },
+    {
+      "name": "Meta Audience Network",
+      "reason": "No official Meta Data safety disclosure page found; Play SDK Index page could not be read (content truncated)."
+    },
+    {
+      "name": "AppsFlyer",
+      "reason": "Official page exists (https://support.appsflyer.com/hc/en-us/articles/4417197430289) but returned HTTP 403 and could not be opened."
+    },
+    {
+      "name": "Sentry",
+      "reason": "Official mobile privacy page (https://docs.sentry.io/security-legal-pii/security/mobile-privacy/) has no Data safety category answers; no official Data safety mapping found."
+    },
+    {
+      "name": "Mixpanel",
+      "reason": "No official Data safety disclosure page found."
+    },
+    {
+      "name": "Amplitude",
+      "reason": "No official Data safety disclosure page found; Amplitude community staff reply says it is 'difficult for us to answer these questions for customers'."
+    },
+    {
+      "name": "AppLovin MAX",
+      "reason": "No Data safety section on the official MAX Android privacy page (https://support.applovin.com/en/max/android/overview/privacy); none found elsewhere."
+    },
+    {
+      "name": "Segment",
+      "reason": "No official Data safety disclosure page found."
+    },
+    {
+      "name": "Microsoft App Center",
+      "reason": "No official Data safety disclosure page found; service was retired in 2025."
+    },
+    {
+      "name": "Google Sign-In",
+      "reason": "No Android Play Data safety disclosure found; Google publishes only an iOS App Store privacy page for Sign-In."
+    },
+    {
+      "name": "Google Play Billing",
+      "reason": "No official Data safety disclosure page found for the Play Billing Library."
+    }
+  ]
+}

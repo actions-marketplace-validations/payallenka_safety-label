@@ -1,0 +1,44 @@
+{
+  "name": "safety-label",
+  "version": "0.1.0",
+  "description": "Find the tracker SDKs inside an Android app and draft Google Play Data safety answers from the vendors' own disclosures. Offline, zero dependencies.",
+  "type": "module",
+  "bin": {
+    "safety-label": "bin/safety-label.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "data/",
+    "TRACKER_DATA_LICENSE.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "fixtures": "bash scripts/build-fixtures.sh"
+  },
+  "keywords": [
+    "android",
+    "privacy",
+    "data-safety",
+    "google-play",
+    "sdk",
+    "trackers",
+    "apk",
+    "compliance",
+    "github-action"
+  ],
+  "author": "Payal Lenka",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/payallenka/safety-label.git"
+  },
+  "homepage": "https://github.com/payallenka/safety-label#readme",
+  "bugs": "https://github.com/payallenka/safety-label/issues"
+}

@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.apk binary
+*.apks binary
+*.aab binary
+*.dex binary

@@ -1,0 +1,48 @@
+name: tracker catalog update
+# Monthly: fetch the latest Exodus Privacy tracker list and open a pull request if it changed.
+# Scans never go online; only this workflow does, once a month.
+on:
+  schedule:
+    - cron: "23 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+      - name: Regenerate catalog
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/update-trackers.mjs
+          npm test
+          if git diff --quiet -- data/trackers.json; then
+            echo "Catalog unchanged."; echo "changed=false" >> "$GITHUB_ENV"
+          else
+            echo "changed=true" >> "$GITHUB_ENV"
+          fi
+      - name: Open pull request
+        if: env.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          branch="catalog-$(date +%Y-%m)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add data/trackers.json
+          git commit -m "chore: update tracker catalog from Exodus Privacy ($(date +%Y-%m))"
+          git push -f origin "$branch"
+          gh pr create --title "chore: update tracker catalog ($(date +%Y-%m))" \
+            --body "Monthly refresh of the Exodus Privacy tracker database (ODbL). Check that every trackerId in data/sdk-disclosures.json still exists, then release." \
+            --base main --head "$branch" || echo "PR already exists"
