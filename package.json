@@ -1,6 +1,6 @@
 {
   "name": "safety-label",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find the tracker SDKs inside an Android app and draft Google Play Data safety answers from the vendors' own disclosures. Offline, zero dependencies.",
   "type": "module",
   "bin": {

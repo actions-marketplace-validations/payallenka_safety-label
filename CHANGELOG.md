@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- First release published from GitHub Actions through npm trusted publishing, with a provenance attestation that links the package to this repository. No code changes.
+
 ## 0.1.0
 
 First release.
